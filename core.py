@@ -7,7 +7,8 @@ from algorithms import Tuple2Int, Tile, Movement, Algorithm, Maze
 class AnimationSpeed(Enum):
 	SLOW = 0.8
 	MEDIUM = 0.5
-	FAST = 0.2
+	FAST = 0.25
+	VERY_FAST = 0.1
 
 
 class Game:
@@ -77,7 +78,7 @@ class Game:
 	@animation_speed.setter
 	def animation_speed(self, new_speed: AnimationSpeed):
 		old_progress = self._animation_time / self._animation_speed
-		self._animation_speed = new_speed.value
+		self._animation_speed = min(new_speed.value, self._animation_speed)
 		self._animation_time = old_progress * self._animation_speed
 
 	def _calculate_tiles_resolution(self) -> None:
@@ -195,7 +196,7 @@ class Game:
 		if not self._is_animating:
 			return None
 
-		self._animation_time += time_delta
+		self._animation_time += min(time_delta, self._animation_speed)
 		if self._animation_time >= self._animation_speed:  # Reach new tile
 			self._animation_time = 0.0
 			self._movement_index += 1
@@ -220,8 +221,8 @@ class Game:
 				self._stones_images_positions.pop(self._agent_position)
 				self._stones_images_positions.update({stone_position: (stone_x, stone_y)})
 				self._stones_weights_labels.update({stone_position: self._stones_weights_labels.pop(self._agent_position)})
-		# Update images positions
 		distance = time_delta / self._animation_speed * self._tile_size
+		# Update images positions
 		horizontal, vertical = self._movement
 		agent_image_x, agent_image_y = self._agent_image_position
 		self._agent_image_position = (agent_image_x + horizontal * distance, agent_image_y + vertical * distance)

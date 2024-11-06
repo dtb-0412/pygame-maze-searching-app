@@ -58,7 +58,7 @@ class MainGui:
 
 		self._animation_speed_dropdown = Dropdown(
 			position=(900, 380), size=(250, 40), widget_id="select_animation_speed",
-			options=ANIMATION_SPEED_OPTIONS, options_display=3, option_size=(elements.AUTO_VALUE, 28),
+			options=ANIMATION_SPEED_OPTIONS, options_display=4, option_size=(elements.AUTO_VALUE, 28),
 			theme=DROPDOWN_THEME
 		)
 		self._animation_speed_dropdown.select("Medium")
@@ -235,7 +235,7 @@ class MainGui:
 if __name__ == '__main__':
 	pygame.init()
 
-	gui = MainGui(input_file="input/input_3.txt")
+	gui = MainGui(input_file="input/input_10.txt")
 	gui.main_loop()
 
 	pygame.quit()

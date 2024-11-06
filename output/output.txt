@@ -1,3 +1,3 @@
 A Star Search
-Steps: 26, Weight: ?, Node: 5368, Time (ms): 861.5036010742188, Memory (MB): 0.968464
-luluuluRRRRurDllllddRRRRRR
+Steps: 25, Weight: ?, Node: 16277, Time (ms): 3024.6121883392334, Memory (MB): 3.192336
+ddrrrUdrrDrdLLLLLLulUluRR

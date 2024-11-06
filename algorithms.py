@@ -79,7 +79,7 @@ class State:
 				push_stone_cost.append(distance_cost(stone_position, switch_position) * stone_weight)
 				# Being nearer to the more "positionally advantageous" stone is better
 				move_to_stone_cost.append(distance_cost(self.agent_position, stone_position) + push_stone_cost[-1])
-			total_cost += sum(push_stone_cost) + min(move_to_stone_cost)
+			total_cost += min(push_stone_cost) + min(move_to_stone_cost)
 		return total_cost
 
 

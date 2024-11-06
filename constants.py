@@ -23,7 +23,7 @@ BUTTON_THEME_2 = {
 }
 
 ANIMATION_SPEED_OPTIONS = [
-	"Slow", "Medium", "Fast"
+	"Slow", "Medium", "Fast", "Very Fast"
 ]
 
 ALGORITHM_OPTIONS = [
